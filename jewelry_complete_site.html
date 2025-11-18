@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Antonio Jewelry | Fine Jewelry & Custom Designs</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cormorant Garamond', 'Georgia', serif;
+            background: #FAF7F2;
+            color: #4A4A4A;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            background: rgba(250, 247, 242, 0.98);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(232, 199, 208, 0.3);
+            animation: slideDown 0.6s ease;
+            box-shadow: 0 2px 20px rgba(74, 74, 74, 0.1);
+        }
+
+        @keyframes slideDown {
+            from { transform: translateY(-100%); }
+            to { transform: translateY(0); }
+        }
+
+        .top-banner {
+            background: linear-gradient(135deg, #E8C7D0, #FAF7F2, #E8C7D0);
+            padding: 12px;
+            text-align: center;
+            font-size: 14px;
+            color: #4A4A4A;
+            font-weight: 600;
+            letter-spacing: 2px;
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #E8C7D0, #4A4A4A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 3px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 5px rgba(232, 199, 208, 0.5)); }
+            50% { filter: drop-shadow(0 0 20px rgba(232, 199, 208, 0.8)); }
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: #4A4A4A;
+            text-decoration: none;
+            font-size: 16px;
+            letter-spacing: 1px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #E8C7D0, #4A4A4A);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a:hover {
+            color: #E8C7D0;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(135deg, rgba(74, 74, 74, 0.3), rgba(232, 199, 208, 0.4)), 
+                        url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=1600&q=80');
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(232, 199, 208, 0.15) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: float 20s linear infinite;
+        }
+
+        @keyframes float {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-50px, -50px); }
+        }
+
+        .hero-content {
+            z-index: 1;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .hero h1 {
+            font-size: 72px;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #4A4A4A, #E8C7D0, #4A4A4A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: slideIn 1.2s ease;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateX(-100px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .hero p {
+            font-size: 24px;
+            margin-bottom: 40px;
+            color: #4A4A4A;
+            animation: fadeIn 1.5s ease;
+            text-shadow: 0 2px 10px rgba(250, 247, 242, 0.8);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .cta-btn {
+            padding: 18px 45px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #E8C7D0, #FAF7F2);
+            color: #4A4A4A;
+            border: 2px solid #E8C7D0;
+            cursor: pointer;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .cta-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.3);
+            transition: left 0.5s ease;
+        }
+
+        .cta-btn:hover::before {
+            left: 100%;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(232, 199, 208, 0.4);
+            background: #E8C7D0;
+            color: #FAF7F2;
+        }
+
+        /* Shop by Price */
+        .shop-by-price {
+            padding: 100px 50px;
+            text-align: center;
+            background: #FAF7F2;
+        }
+
+        .section-title {
+            font-size: 48px;
+            margin-bottom: 60px;
+            color: #E8C7D0;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .price-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .price-card {
+            padding: 40px 30px;
+            background: #FFFFFF;
+            border: 2px solid #E8C7D0;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: radial-gradient(circle, rgba(232, 199, 208, 0.2), transparent);
+            transform: translate(-50%, -50%);
+            transition: all 0.5s ease;
+        }
+
+        .price-card:hover::before {
+            width: 300%;
+            height: 300%;
+        }
+
+        .price-card:hover {
+            transform: translateY(-10px);
+            border-color: #4A4A4A;
+            box-shadow: 0 15px 40px rgba(232, 199, 208, 0.4);
+        }
+
+        .price-card h3 {
+            font-size: 28px;
+            color: #E8C7D0;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+            font-weight: 700;
+        }
+
+        .price-card p {
+            font-size: 16px;
+            color: #4A4A4A;
+            position: relative;
+            z-index: 1;
+            line-height: 1.6;
+        }
+
+        /* Featured Collection */
+        .featured {
+            padding: 100px 50px;
+            background: linear-gradient(180deg, #FAF7F2, #FFFFFF);
+        }
+
+        .featured-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1400px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        .featured-image {
+            width: 100%;
+            height: 600px;
+            background: linear-gradient(135deg, rgba(250, 247, 242, 0.3), rgba(232, 199, 208, 0.3)), 
+                        url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80');
+            background-size: cover;
+            background-position: center;
+            border: 3px solid #E8C7D0;
+            border-radius: 10px;
+            position: relative;
+            overflow: hidden;
+            animation: fadeIn 1s ease;
+        }
+
+        .featured-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent, rgba(232, 199, 208, 0.15));
+            animation: shimmerOverlay 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmerOverlay {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
+        }
+
+        .featured-text h2 {
+            font-size: 52px;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #E8C7D0, #4A4A4A);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .featured-text p {
+            font-size: 20px;
+            line-height: 1.8;
+            color: #4A4A4A;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease;
+        }
+
+        /* Categories */
+        .categories {
+            padding: 100px 50px;
+            background: #FAF7F2;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .category-card {
+            height: 400px;
+            background-size: cover;
+            background-position: center;
+            border: 2px solid #E8C7D0;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s ease;
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(74, 74, 74, 0.6), rgba(232, 199, 208, 0.4));
+            transition: all 0.5s ease;
+        }
+
+        .category-card::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(232, 199, 208, 0.4), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .category-card:hover::before {
+            background: linear-gradient(135deg, rgba(74, 74, 74, 0.4), rgba(232, 199, 208, 0.5));
+        }
+
+        .category-card:hover::after {
+            opacity: 1;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .category-card:hover {
+            border-color: #4A4A4A;
+            transform: scale(1.05);
+            box-shadow: 0 20px 50px rgba(232, 199, 208, 0.4);
+        }
+
+        .category-card h3 {
+            font-size: 36px;
+            color: #FAF7F2;
+            z-index: 1;
+            transition: all 0.3s ease;
+            text-shadow: 2px 2px 8px rgba(74, 74, 74, 0.8);
+            position: relative;
+        }
+
+        .category-card:hover h3 {
+            transform: scale(1.1);
+            color: #E8C7D0;
+            text-shadow: 0 0 20px rgba(232, 199, 208, 0.9), 2px 2px 8px rgba(74, 74, 74, 0.8);
+        }
+
+        /* About */
+        .about {
+            padding: 100px 50px;
+            background: linear-gradient(180deg, #FFFFFF, #FAF7F2);
+            text-align: center;
+        }
+
+        .about-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .about-content p {
+            font-size: 20px;
+            line-height: 2;
+            color: #4A4A4A;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 60px;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .stat {
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .stat h3 {
+            font-size: 56px;
+            color: #E8C7D0;
+            margin-bottom: 10px;
+            animation: countUp 2s ease;
+        }
+
+        @keyframes countUp {
+            from { opacity: 0; transform: scale(0.5); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .stat p {
+            font-size: 18px;
+            color: #4A4A4A;
+        }
+
+        /* Services */
+        .services {
+            padding: 100px 50px;
+            background: #FAF7F2;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .service-card {
+            padding: 40px;
+            background: #FFFFFF;
+            border: 2px solid #E8C7D0;
+            border-radius: 10px;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(232, 199, 208, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            border-color: #4A4A4A;
+            box-shadow: 0 20px 40px rgba(232, 199, 208, 0.3);
+        }
+
+        .service-icon {
+            font-size: 64px;
+            margin-bottom: 20px;
+            filter: grayscale(100%);
+            transition: all 0.4s ease;
+        }
+
+        .service-card:hover .service-icon {
+            filter: grayscale(0%);
+            transform: scale(1.2) rotateY(360deg);
+        }
+
+        .service-card h3 {
+            font-size: 28px;
+            color: #E8C7D0;
+            margin-bottom: 15px;
+        }
+
+        .service-card p {
+            font-size: 16px;
+            color: #4A4A4A;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(180deg, #FAF7F2, #FFFFFF);
+            padding: 60px 50px 30px;
+            border-top: 2px solid #E8C7D0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            max-width: 1400px;
+            margin: 0 auto 40px;
+        }
+
+        .footer-section h3 {
+            color: #E8C7D0;
+            margin-bottom: 20px;
+            font-size: 24px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: #4A4A4A;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #E8C7D0;
+            padding-left: 10px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(232, 199, 208, 0.3);
+            color: #4A4A4A;
+        }
+
+        /* Scroll animations */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .featured-content {
+                grid-template-columns: 1fr;
+            }
+
+            .section-title {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-banner">
+            SHOP 50% OFF SUMMER SALE 💎 | BUY ONLINE, PICK UP IN-STORE TODAY!
+        </div>
+        <nav>
+            <div class="logo">SAN ANTONIO JEWELRY</div>
+            <ul class="nav-links">
+                <li><a href="#shop">SHOP</a></li>
+                <li><a href="#collections">COLLECTIONS</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#about">ABOUT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Timeless Elegance</h1>
+            <p>Bespoke Jewelry & Custom Designs Since 1983</p>
+            <a href="#shop" class="cta-btn">EXPLORE COLLECTION</a>
+        </div>
+    </section>
+
+    <section class="shop-by-price" id="shop">
+        <h2 class="section-title">SHOP BY PRICE</h2>
+        <div class="price-grid">
+            <div class="price-card animate-on-scroll">
+                <h3>Under $100</h3>
+                <p>Everyday Elegance</p>
+            </div>
+            <div class="price-card animate-on-scroll">
+                <h3>$100-$500</h3>
+                <p>Classic Pieces</p>
+            </div>
+            <div class="price-card animate-on-scroll">
+                <h3>$500-$1,000</h3>
+                <p>Statement Jewelry</p>
+            </div>
+            <div class="price-card animate-on-scroll">
+                <h3>$1,000-$5,000</h3>
+                <p>Premium Collection</p>
+            </div>
+            <div class="price-card animate-on-scroll">
+                <h3>$5,000+</h3>
+                <p>Luxury Pieces</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="featured">
+        <div class="featured-content">
+            <div class="featured-image animate-on-scroll"></div>
+            <div class="featured-text">
+                <h2>WEDDING BANDS</h2>
+                <p>Complement your engagement ring with a band that shines just as brightly. Browse our exquisite collection of wedding bands, including both sparkling diamonds and colorful gemstones.</p>
+                <a href="#collections" class="cta-btn">SHOP THE COLLECTION</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="categories" id="collections">
+        <h2 class="section-title">SHOP BY CATEGORY</h2>
+        <div class="category-grid">
+            <div class="category-card animate-on-scroll" style="background-image: url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80');">
+                <h3>RINGS</h3>
+            </div>
+            <div class="category-card animate-on-scroll" style="background-image: url('https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?w=600&q=80');">
+                <h3>NECKLACES</h3>
+            </div>
+            <div class="category-card animate-on-scroll" style="background-image: url('https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?w=600&q=80');">
+                <h3>EARRINGS</h3>
+            </div>
+            <div class="category-card animate-on-scroll" style="background-image: url('https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80');">
+                <h3>BRACELETS</h3>
+            </div>
+            <div class="category-card animate-on-scroll" style="background-image: url('https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=600&q=80');">
+                <h3>WEDDING BANDS</h3>
+            </div>
+            <div class="category-card animate-on-scroll" style="background-image: url('https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=600&q=80');">
+                <h3>NEW ARRIVALS</h3>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="about">
+        <h2 class="section-title">OUR LEGACY</h2>
+        <div class="about-content">
+            <p>Mr. Goodwin, a GIA Graduate Gemologist with over 45 years of experience, meticulously executes each jewelry appraisal. The store's in-house Master Jeweler with 30 years of experience, exceptionally performs each jewelry repair.</p>
+            <p>At the forefront of jewelry trends, Mrs. Holly Goodwin with 15 years of experience, oversees San Antonio Jewelry's comprehensive custom design process including 3D printing technology.</p>
+            <p>Throughout San Antonio Jewelry's 40 years of business, customers have become lifelong family and friends.</p>
+        </div>
+        <div class="stats">
+            <div class="stat">
+                <h3>45+</h3>
+                <p>Years of Expertise</p>
+            </div>
+            <div class="stat">
+                <h3>40</h3>
+                <p>Years in Business</p>
+            </div>
+            <div class="stat">
+                <h3>1000s</h3>
+                <p>Happy Customers</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="services" id="services">
+        <h2 class="section-title">OUR SERVICES</h2>
+        <div class="services-grid">
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">💍</div>
+                <h3>Custom Design</h3>
+                <p>Bespoke engagement rings and custom jewelry design with 3D printing technology</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">🔧</div>
+                <h3>Jewelry Repair</h3>
+                <p>Expert jewelry repair, sizing, and pearl restringing by our Master Jeweler</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">📜</div>
+                <h3>Appraisals</h3>
+                <p>Professional jewelry appraisals by our GIA Graduate Gemologist</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">✨</div>
+                <h3>Free Cleaning</h3>
+                <p>Complimentary jewelry cleaning to keep your pieces sparkling</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">🪙</div>
+                <h3>Gold & Silver Trading</h3>
+                <p>Professional gold and silver trading and coin commerce services</p>
+            </div>
+            <div class="service-card animate-on-scroll">
+                <div class="service-icon">⌚</div>
+                <h3>Pre-Owned Watches</h3>
+                <p>Curated collection of estate jewelry and pre-owned luxury watches</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>SHOP</h3>
+                <ul>
+                    <li><a href="#">Rings</a></li>
+                    <li><a href="#">Necklaces</a></li>
+                    <li><a href="#">Earrings</a></li>
+                    <li><a href="#">Bracelets</a></li>
+                    <li><a href="#">Wedding Bands</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>COLLECTIONS</h3>
+                <ul>
+                    <li><a href="#">New Arrivals</a></li>
+                    <li><a href="#">Birthstone Studs</a></li>
+                    <li><a href="#">Diamonds</a></li>
+                    <li><a href="#">Gemstones</a></li>
+                    <li><a href="#">Estate Jewelry</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>SERVICES</h3>
+                <ul>
+                    <li><a href="#">Custom Design</a></li>
+                    <li><a href="#">Repairs & Sizing</a></li>
+                    <li><a href="#">Appraisals</a></li>
+                    <li><a href="#">Pearl Restringing</a></li>
+                    <li><a href="#">Gold Trading</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>CONTACT</h3>
+                <ul>
+                    <li><a href="#">Visit Us</a></li>
+                    <li><a href="#">Shop Pay Available</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 San Antonio Jewelry. All Rights Reserved. | 40 Years of Excellence</p>
+        </div>
+    </footer>
+
+    <script>
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
